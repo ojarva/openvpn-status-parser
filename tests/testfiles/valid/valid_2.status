@@ -1,0 +1,6 @@
+TITLE	OpenVPN 2.1.4 x86_64-unknown-openbsd5.0 [SSL] [LZO2] built on Aug	4 2011
+TIME	Thu Aug 16 12:30:30 2012	1345109430
+HEADER	CLIENT_LIST	Common Name	Real Address	Virtual Address	Bytes Received	Bytes Sent	Connected Since	Connected Since (time_t)
+HEADER	ROUTING_TABLE	Virtual Address	Common Name	Real Address	Last Ref	Last Ref (time_t)
+GLOBAL_STATS	Max bcast/mcast queue length	11
+END

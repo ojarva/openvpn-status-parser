@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+"""OpenVPN status parser
+
+Usage:
+    openvpn-status-parser <filename>...
+
+"""
+
+import os.path
+import pprint
+import sys
+
+import docopt
+import openvpn_status_parser
+
+
+def main():
+    arguments = docopt.docopt(__doc__, version='OpenVPN status parser')
+    for filename in arguments["<filename>"]:
+        if not os.path.exists(filename):
+            print("File '%s' does not exist. Exiting." % filename)
+            return 1
+        parser = openvpn_status_parser.OpenVPNStatusParser(filename)
+        print("=" * 79)
+        print(filename)
+        print("-" * 79)
+        print("Connected clients")
+        pprint.pprint(parser.connected_clients)
+        print("-" * 79)
+        print("Routing table")
+        pprint.pprint(parser.routing_table)
+        print("-" * 79)
+        print("Additional details")
+        pprint.pprint(parser.details)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

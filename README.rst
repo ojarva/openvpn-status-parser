@@ -1,18 +1,43 @@
 openvpn-status-parser
 =====================
 
-This is a parser for openvpn status files, version 3.
+Installation:
 
-How to use:
+::
 
-- add "status-version 3" to openvpn server configuration. Reload/restart openvpn server.
+  pip install openvpn-status-parser
+
+or clone `the repository <https://github.com/ojarva/openvpn-status-parser>`_ and run
+
+::
+
+  python setup.py install
+
+Usage:
+
+- add `status-version 3` to openvpn server configuration. Reload/restart openvpn server.
 - locate openvpn status file. Usually it's under /var/run in Unix based systems.
-- Run "python openvpn-status-parser.py <filename>" for demo. Sample file with random data
-  is included in the repository, try it with "python openvpn-status-parser.py".
+
+::
+
+  openvpn-status-parser /var/run/openvpn/openvpn.status
+
+Or using Python:
+
+::
+
+  import pprint
+  from openvpn_status_parser import OpenVPNStatusParser
+
+  parser = OpenVPNStatusParser("/var/run/openvpn/openvpn.status")
+  pprint.pprint(parser.connected_clients)
+  pprint.pprint(parser.routing_table)
+  pprint.pprint(parser.details)
+
 
 MIT License:
 
-Copyright (C) 2012, Olli Jarva <olli.jarva@futurice.com>
+Copyright (C) 2012-2016, Olli Jarva \<olli@jarva.fi\>
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the

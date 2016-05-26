@@ -1,0 +1,2 @@
+class MalformedFileException(Exception):
+    pass
