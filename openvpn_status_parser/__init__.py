@@ -29,7 +29,7 @@ import csv
 import datetime
 import logging
 import sys
-import exceptions
+from . import exceptions
 
 
 class OpenVPNStatusParser(object):
