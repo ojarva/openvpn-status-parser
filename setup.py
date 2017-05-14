@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='openvpn-status-parser',
-    version='0.0.1',
+    version='0.0.2',
     description='OpenVPN status parser',
     long_description=long_description,
     url='https://github.com/ojarva/openvpn-status-parser',
