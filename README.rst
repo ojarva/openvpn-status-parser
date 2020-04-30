@@ -21,6 +21,7 @@ Usage:
 ::
 
   openvpn-status-parser /var/run/openvpn/openvpn.status
+  openvpn-status-parser /var/run/openvpn/openvpn.status --json
 
 Or using Python:
 
