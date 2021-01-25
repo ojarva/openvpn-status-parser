@@ -15,8 +15,7 @@ setup(
     url='https://github.com/ojarva/openvpn-status-parser',
     author='Olli Jarva',
     author_email='olli@jarva.fi',
-    license='BSD',
-
+    license='MIT',
     classifiers=[
         'Development Status :: 4 - Beta',
 
