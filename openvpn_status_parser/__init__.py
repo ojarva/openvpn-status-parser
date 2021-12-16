@@ -79,8 +79,10 @@ class OpenVPNStatusParser:
 
     def _process_client_list(self, row):
         try:
-            self._connected_clients[row[1]] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
-            self._connected_clients[row[1]]["connected_since"] = (datetime.datetime.fromtimestamp(int(row[-1])))
+            cid_index = self.topics_for["CLIENT_LIST"].index('Client ID')
+            self._connected_clients[row[cid_index]] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
+            conn_key = next(filter(lambda x: "time_t" in x, self._connected_clients[row[cid_index]].keys()))
+            self._connected_clients[row[cid_index]]["connected_since"] = (datetime.datetime.fromtimestamp(int(self._connected_clients[row[cid_index]][conn_key])))
         except IndexError as err:
             logging.error("CLIENT_LIST row is invalid: %s", row)
             raise exceptions.MalformedFileException("CLIENT_LIST row is invalid") from err
