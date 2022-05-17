@@ -14,7 +14,6 @@ class Encoder(json.JSONEncoder):
 
     def default(self, obj):
         if isinstance(obj, datetime.datetime):
-            #in_utc = obj.replace(tzinfo=datetime.timezone.utc)
             return obj.isoformat()
 
 
