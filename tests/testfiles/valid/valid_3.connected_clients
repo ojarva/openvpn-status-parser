@@ -1,5 +1,5 @@
 {
-    "3kjb-laptop": {
+    "3kjb-laptop (72.55.24.7:60477)": {
         "Bytes Received": "14460410",
         "Bytes Sent": "10433581",
         "Client ID": "16499",
@@ -14,7 +14,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:56:01+00:00"
     },
-    "aefj-laptop": {
+    "aefj-laptop (83.243.114.51:63714)": {
         "Bytes Received": "13483768",
         "Bytes Sent": "22837245",
         "Client ID": "20718",
@@ -29,7 +29,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:55:59+00:00"
     },
-    "alfb-laptop": {
+    "alfb-laptop (204.184.94.179:41718)": {
         "Bytes Received": "8689702",
         "Bytes Sent": "33241946",
         "Client ID": "17002",
@@ -44,7 +44,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:55:43+00:00"
     },
-    "eijbk-ext-home-laptop": {
+    "eijbk-ext-home-laptop (10.3.0.23:61674)": {
         "Bytes Received": "7368376",
         "Bytes Sent": "5524424",
         "Client ID": "41983",
@@ -59,7 +59,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T09:15:27+00:00"
     },
-    "ekl6-laptop": {
+    "ekl6-laptop (48.109.171.156:15916)": {
         "Bytes Received": "6525908",
         "Bytes Sent": "14266028",
         "Client ID": "1952",
@@ -74,7 +74,22 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:55:54+00:00"
     },
-    "ibja-laptop": {
+    "ekl6-laptop (48.109.171.156:5396)": {
+        "Bytes Received": "30023",
+        "Bytes Sent": "10023",
+        "Client ID": "1952",
+        "Common Name": "ekl6-laptop",
+        "Connected Since": "Thu Aug 16 11:55:44 2012",
+        "Connected Since (time_t)": "1345107344",
+        "Data Channel Cipher": "AES-256-GCM",
+        "Peer ID": "88",
+        "Real Address": "48.109.171.156:5396",
+        "Username": "UNDEF",
+        "Virtual Address": "10.201.6.50",
+        "Virtual IPv6 Address": "",
+        "connected_since": "2012-08-16T08:55:44+00:00"
+    },
+    "ibja-laptop (72.55.24.7:16909)": {
         "Bytes Received": "28005026",
         "Bytes Sent": "22487707",
         "Client ID": "51823",
@@ -89,7 +104,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T09:14:39+00:00"
     },
-    "ikal-laptop": {
+    "ikal-laptop (72.55.24.7:59688)": {
         "Bytes Received": "13349818",
         "Bytes Sent": "22770930",
         "Client ID": "29872",
@@ -104,7 +119,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:56:01+00:00"
     },
-    "lifk-laptop": {
+    "lifk-laptop (10.3.0.73:52420)": {
         "Bytes Received": "323045913",
         "Bytes Sent": "108230182",
         "Client ID": "43016",
@@ -119,7 +134,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:56:00+00:00"
     },
-    "lkbi-laptop": {
+    "lkbi-laptop (10.3.0.191:53301)": {
         "Bytes Received": "109197617",
         "Bytes Sent": "101758986",
         "Client ID": "39102",
@@ -134,7 +149,7 @@
         "Virtual IPv6 Address": "",
         "connected_since": "2012-08-16T08:55:58+00:00"
     },
-    "oavk-laptop": {
+    "oavk-laptop (10.3.0.55:56466)": {
         "Bytes Received": "25728412",
         "Bytes Sent": "26288851",
         "Client ID": "9734",
