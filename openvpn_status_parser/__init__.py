@@ -65,7 +65,7 @@ class OpenVPNStatusParser:
 
     def _process_time(self, row):
         try:
-            self._details["timestamp"] = datetime.datetime.fromtimestamp(int(row[2]))
+            self._details["timestamp"] = datetime.datetime.utcfromtimestamp(int(row[2])).replace(tzinfo=datetime.timezone.utc)
         except (IndexError, ValueError) as err:
             logging.error("TIME row is invalid: %s", row)
             raise exceptions.MalformedFileException("TIME row is invalid") from err
@@ -79,8 +79,12 @@ class OpenVPNStatusParser:
 
     def _process_client_list(self, row):
         try:
-            self._connected_clients[row[1]] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
-            self._connected_clients[row[1]]["connected_since"] = (datetime.datetime.fromtimestamp(int(row[-1])))
+            cl_key = "%s (%s)" % (
+                row[self.topics_for["CLIENT_LIST"].index("Common Name") + 1],
+                row[self.topics_for["CLIENT_LIST"].index("Real Address") + 1])
+            self._connected_clients[cl_key] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
+            connected_since_idx = self.topics_for["CLIENT_LIST"].index("Connected Since (time_t)") + 1
+            self._connected_clients[cl_key]["connected_since"] = (datetime.datetime.utcfromtimestamp(int(row[connected_since_idx]))).replace(tzinfo=datetime.timezone.utc)
         except IndexError as err:
             logging.error("CLIENT_LIST row is invalid: %s", row)
             raise exceptions.MalformedFileException("CLIENT_LIST row is invalid") from err
@@ -91,8 +95,12 @@ class OpenVPNStatusParser:
         if len(row[1:]) != len(self.topics_for.get("ROUTING_TABLE", [])):
             raise exceptions.MalformedFileException("Invalid number of topics for ROUTING_TABLE row")
         try:
-            self._routing_table[row[2]] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
-            self._routing_table[row[2]]["last_ref"] = datetime.datetime.fromtimestamp(int(row[-1]))
+            rt_key = "%s (%s)" % (
+                row[self.topics_for["ROUTING_TABLE"].index("Common Name") + 1],
+                row[self.topics_for["ROUTING_TABLE"].index("Real Address") + 1])
+            self._routing_table[rt_key] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
+            last_ref_idx = self.topics_for["ROUTING_TABLE"].index("Last Ref (time_t)") + 1
+            self._routing_table[rt_key]["last_ref"] = datetime.datetime.utcfromtimestamp(int(row[last_ref_idx])).replace(tzinfo=datetime.timezone.utc)
         except IndexError as err:
             logging.error("ROUTING_TABLE row is invalid: %s", row)
             raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid") from err
@@ -113,16 +121,17 @@ class OpenVPNStatusParser:
         self._connected_clients = {}
         self._routing_table = {}
         self.topics_for = {}
-        csvreader = csv.reader(open(self.filename), delimiter='\t')
-        for row in csvreader:
-            row_title = row[0]
-            if row_title in self.title_processors:
-                self.title_processors[row_title](row)
-            elif row_title == "END":
-                return True
-            else:
-                logging.warning("Line was not parsed. Keyword %s not recognized. %s", row_title, row)
-                raise exceptions.MalformedFileException(f"Unhandled keyword {row_title}")
+        with open(self.filename, 'r', newline='') as f:
+            csvreader = csv.reader(f, delimiter='\t')
+            for row in csvreader:
+                row_title = row[0]
+                if row_title in self.title_processors:
+                    self.title_processors[row_title](row)
+                elif row_title == "END":
+                    return True
+                else:
+                    logging.warning("Line was not parsed. Keyword %s not recognized. %s", row_title, row)
+                    raise exceptions.MalformedFileException(f"Unhandled keyword {row_title}")
 
         logging.error("File was incomplete. END line was missing.")
         raise exceptions.MalformedFileException("END line was missing.")

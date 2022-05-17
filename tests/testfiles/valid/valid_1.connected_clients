@@ -1,0 +1,102 @@
+{
+    "3kjb-laptop (72.55.24.7:60477)": {
+        "Bytes Received": "14460410",
+        "Bytes Sent": "10433581",
+        "Common Name": "3kjb-laptop",
+        "Connected Since": "Thu Aug 16 11:56:01 2012",
+        "Connected Since (time_t)": "1345107361",
+        "Real Address": "72.55.24.7:60477",
+        "Virtual Address": "10.201.6.58",
+        "connected_since": "2012-08-16T08:56:01+00:00"
+    },
+    "aefj-laptop (83.243.114.51:63714)": {
+        "Bytes Received": "13483768",
+        "Bytes Sent": "22837245",
+        "Common Name": "aefj-laptop",
+        "Connected Since": "Thu Aug 16 11:55:59 2012",
+        "Connected Since (time_t)": "1345107359",
+        "Real Address": "83.243.114.51:63714",
+        "Virtual Address": "10.201.6.55",
+        "connected_since": "2012-08-16T08:55:59+00:00"
+    },
+    "alfb-laptop (204.184.94.179:41718)": {
+        "Bytes Received": "8689702",
+        "Bytes Sent": "33241946",
+        "Common Name": "alfb-laptop",
+        "Connected Since": "Thu Aug 16 11:55:43 2012",
+        "Connected Since (time_t)": "1345107343",
+        "Real Address": "204.184.94.179:41718",
+        "Virtual Address": "10.201.6.51",
+        "connected_since": "2012-08-16T08:55:43+00:00"
+    },
+    "eijbk-ext-home-laptop (10.3.0.23:61674)": {
+        "Bytes Received": "7368376",
+        "Bytes Sent": "5524424",
+        "Common Name": "eijbk-ext-home-laptop",
+        "Connected Since": "Thu Aug 16 12:15:27 2012",
+        "Connected Since (time_t)": "1345108527",
+        "Real Address": "10.3.0.23:61674",
+        "Virtual Address": "10.201.6.56",
+        "connected_since": "2012-08-16T09:15:27+00:00"
+    },
+    "ekl6-laptop (48.109.171.156:15916)": {
+        "Bytes Received": "6525908",
+        "Bytes Sent": "14266028",
+        "Common Name": "ekl6-laptop",
+        "Connected Since": "Thu Aug 16 11:55:54 2012",
+        "Connected Since (time_t)": "1345107354",
+        "Real Address": "48.109.171.156:15916",
+        "Virtual Address": "10.201.6.53",
+        "connected_since": "2012-08-16T08:55:54+00:00"
+    },
+    "ibja-laptop (72.55.24.7:16909)": {
+        "Bytes Received": "28005026",
+        "Bytes Sent": "22487707",
+        "Common Name": "ibja-laptop",
+        "Connected Since": "Thu Aug 16 12:14:24 2012",
+        "Connected Since (time_t)": "1345108479",
+        "Real Address": "72.55.24.7:16909",
+        "Virtual Address": "10.201.6.61",
+        "connected_since": "2012-08-16T09:14:39+00:00"
+    },
+    "ikal-laptop (72.55.24.7:59688)": {
+        "Bytes Received": "13349818",
+        "Bytes Sent": "22770930",
+        "Common Name": "ikal-laptop",
+        "Connected Since": "Thu Aug 16 11:56:01 2012",
+        "Connected Since (time_t)": "1345107361",
+        "Real Address": "72.55.24.7:59688",
+        "Virtual Address": "10.201.6.59",
+        "connected_since": "2012-08-16T08:56:01+00:00"
+    },
+    "lifk-laptop (10.3.0.73:52420)": {
+        "Bytes Received": "323045913",
+        "Bytes Sent": "108230182",
+        "Common Name": "lifk-laptop",
+        "Connected Since": "Thu Aug 16 11:56:00 2012",
+        "Connected Since (time_t)": "1345107360",
+        "Real Address": "10.3.0.73:52420",
+        "Virtual Address": "10.201.6.57",
+        "connected_since": "2012-08-16T08:56:00+00:00"
+    },
+    "lkbi-laptop (10.3.0.191:53301)": {
+        "Bytes Received": "109197617",
+        "Bytes Sent": "101758986",
+        "Common Name": "lkbi-laptop",
+        "Connected Since": "Thu Aug 16 11:55:58 2012",
+        "Connected Since (time_t)": "1345107358",
+        "Real Address": "10.3.0.191:53301",
+        "Virtual Address": "10.201.6.54",
+        "connected_since": "2012-08-16T08:55:58+00:00"
+    },
+    "oavk-laptop (10.3.0.55:56466)": {
+        "Bytes Received": "25728412",
+        "Bytes Sent": "26288851",
+        "Common Name": "oavk-laptop",
+        "Connected Since": "Thu Aug 16 11:55:52 2012",
+        "Connected Since (time_t)": "1345107352",
+        "Real Address": "10.3.0.55:56466",
+        "Virtual Address": "10.201.6.52",
+        "connected_since": "2012-08-16T08:55:52+00:00"
+    }
+}
