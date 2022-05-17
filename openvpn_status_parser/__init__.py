@@ -114,7 +114,7 @@ class OpenVPNStatusParser:
         self._connected_clients = {}
         self._routing_table = {}
         self.topics_for = {}
-        with open(self.filename) as f:
+        with open(self.filename, 'r', newline='') as f:
             csvreader = csv.reader(f, delimiter='\t')
             for row in csvreader:
                 row_title = row[0]
