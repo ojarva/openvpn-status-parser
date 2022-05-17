@@ -113,16 +113,17 @@ class OpenVPNStatusParser:
         self._connected_clients = {}
         self._routing_table = {}
         self.topics_for = {}
-        csvreader = csv.reader(open(self.filename), delimiter='\t')
-        for row in csvreader:
-            row_title = row[0]
-            if row_title in self.title_processors:
-                self.title_processors[row_title](row)
-            elif row_title == "END":
-                return True
-            else:
-                logging.warning("Line was not parsed. Keyword %s not recognized. %s", row_title, row)
-                raise exceptions.MalformedFileException(f"Unhandled keyword {row_title}")
+        with open(self.filename) as f:
+            csvreader = csv.reader(f, delimiter='\t')
+            for row in csvreader:
+                row_title = row[0]
+                if row_title in self.title_processors:
+                    self.title_processors[row_title](row)
+                elif row_title == "END":
+                    return True
+                else:
+                    logging.warning("Line was not parsed. Keyword %s not recognized. %s", row_title, row)
+                    raise exceptions.MalformedFileException(f"Unhandled keyword {row_title}")
 
         logging.error("File was incomplete. END line was missing.")
         raise exceptions.MalformedFileException("END line was missing.")
