@@ -20,7 +20,7 @@ class Encoder(json.JSONEncoder):
 def Decoder(d):
     for f in ['connected_since', 'last_ref', 'timestamp']:
         if f in d:
-            d[f] = datetime.datetime.strptime(d[f], "%Y-%m-%dT%H:%M:%S")
+            d[f] = datetime.datetime.fromisoformat(d[f])
     return d
 
 
