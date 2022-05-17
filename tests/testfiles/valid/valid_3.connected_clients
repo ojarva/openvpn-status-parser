@@ -11,7 +11,7 @@
         "Username": "16499",
         "Virtual Address": "10.201.6.58",
         "Virtual IPv6 Address": "14460410",
-        "connected_since": "2012-08-16T16:56:01"
+        "connected_since": "2012-08-16T08:56:01+00:00"
     },
     "aefj-laptop": {
         "Bytes Received": "22837245",
@@ -25,7 +25,7 @@
         "Username": "20718",
         "Virtual Address": "10.201.6.55",
         "Virtual IPv6 Address": "13483768",
-        "connected_since": "2012-08-16T16:55:59"
+        "connected_since": "2012-08-16T08:55:59+00:00"
     },
     "alfb-laptop": {
         "Bytes Received": "33241946",
@@ -39,7 +39,7 @@
         "Username": "17002",
         "Virtual Address": "10.201.6.51",
         "Virtual IPv6 Address": "8689702",
-        "connected_since": "2012-08-16T16:55:43"
+        "connected_since": "2012-08-16T08:55:43+00:00"
     },
     "eijbk-ext-home-laptop": {
         "Bytes Received": "5524424",
@@ -53,7 +53,7 @@
         "Username": "41983",
         "Virtual Address": "10.201.6.56",
         "Virtual IPv6 Address": "7368376",
-        "connected_since": "2012-08-16T17:15:27"
+        "connected_since": "2012-08-16T09:15:27+00:00"
     },
     "ekl6-laptop": {
         "Bytes Received": "14266028",
@@ -67,7 +67,7 @@
         "Username": "1952",
         "Virtual Address": "10.201.6.53",
         "Virtual IPv6 Address": "6525908",
-        "connected_since": "2012-08-16T16:55:54"
+        "connected_since": "2012-08-16T08:55:54+00:00"
     },
     "ibja-laptop": {
         "Bytes Received": "22487707",
@@ -81,7 +81,7 @@
         "Username": "51823",
         "Virtual Address": "10.201.6.61",
         "Virtual IPv6 Address": "28005026",
-        "connected_since": "2012-08-16T17:14:39"
+        "connected_since": "2012-08-16T09:14:39+00:00"
     },
     "ikal-laptop": {
         "Bytes Received": "22770930",
@@ -95,7 +95,7 @@
         "Username": "29872",
         "Virtual Address": "10.201.6.59",
         "Virtual IPv6 Address": "13349818",
-        "connected_since": "2012-08-16T16:56:01"
+        "connected_since": "2012-08-16T08:56:01+00:00"
     },
     "lifk-laptop": {
         "Bytes Received": "108230182",
@@ -109,7 +109,7 @@
         "Username": "43016",
         "Virtual Address": "10.201.6.57",
         "Virtual IPv6 Address": "323045913",
-        "connected_since": "2012-08-16T16:56:00"
+        "connected_since": "2012-08-16T08:56:00+00:00"
     },
     "lkbi-laptop": {
         "Bytes Received": "101758986",
@@ -123,7 +123,7 @@
         "Username": "39102",
         "Virtual Address": "10.201.6.54",
         "Virtual IPv6 Address": "109197617",
-        "connected_since": "2012-08-16T16:55:58"
+        "connected_since": "2012-08-16T08:55:58+00:00"
     },
     "oavk-laptop": {
         "Bytes Received": "26288851",
@@ -137,6 +137,6 @@
         "Username": "9734",
         "Virtual Address": "10.201.6.52",
         "Virtual IPv6 Address": "25728412",
-        "connected_since": "2012-08-16T16:55:52"
+        "connected_since": "2012-08-16T08:55:52+00:00"
     }
 }

@@ -65,7 +65,7 @@ class OpenVPNStatusParser:
 
     def _process_time(self, row):
         try:
-            self._details["timestamp"] = datetime.datetime.fromtimestamp(int(row[2]))
+            self._details["timestamp"] = datetime.datetime.utcfromtimestamp(int(row[2])).replace(tzinfo=datetime.timezone.utc)
         except (IndexError, ValueError) as err:
             logging.error("TIME row is invalid: %s", row)
             raise exceptions.MalformedFileException("TIME row is invalid") from err
@@ -80,7 +80,7 @@ class OpenVPNStatusParser:
     def _process_client_list(self, row):
         try:
             self._connected_clients[row[1]] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
-            self._connected_clients[row[1]]["connected_since"] = (datetime.datetime.fromtimestamp(int(row[7])))
+            self._connected_clients[row[1]]["connected_since"] = (datetime.datetime.utcfromtimestamp(int(row[7]))).replace(tzinfo=datetime.timezone.utc)
         except IndexError as err:
             logging.error("CLIENT_LIST row is invalid: %s", row)
             raise exceptions.MalformedFileException("CLIENT_LIST row is invalid") from err
@@ -93,7 +93,7 @@ class OpenVPNStatusParser:
         try:
             rt_key = "%s (%s)" % (row[2], row[3])
             self._routing_table[rt_key] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
-            self._routing_table[rt_key]["last_ref"] = datetime.datetime.fromtimestamp(int(row[-1]))
+            self._routing_table[rt_key]["last_ref"] = datetime.datetime.utcfromtimestamp(int(row[-1])).replace(tzinfo=datetime.timezone.utc)
         except IndexError as err:
             logging.error("ROUTING_TABLE row is invalid: %s", row)
             raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid") from err
