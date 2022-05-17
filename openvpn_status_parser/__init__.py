@@ -93,7 +93,7 @@ class OpenVPNStatusParser:
         try:
             rt_key = "%s (%s)" % (row[2], row[3])
             self._routing_table[rt_key] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
-            self._routing_table[rt_key]["last_ref"] = datetime.datetime.utcfromtimestamp(int(row[-1])).replace(tzinfo=datetime.timezone.utc)
+            self._routing_table[rt_key]["last_ref"] = datetime.datetime.utcfromtimestamp(int(row[5])).replace(tzinfo=datetime.timezone.utc)
         except IndexError as err:
             logging.error("ROUTING_TABLE row is invalid: %s", row)
             raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid") from err
