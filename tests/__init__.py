@@ -35,17 +35,23 @@ class TestValid(unittest.TestCase):
         self._test_expectation(
             filename, '.details', parsed.details)
 
+    def _print_expectations(self, expected_filename, result):
+        print('Expected file %r:' % expected_filename)
+        print(json.dumps(result, cls=Encoder, indent=4, sort_keys=True))
+
     def _test_expectation(self, filename, expected_extension, result):
         expected_filename = re.sub('\.status$', expected_extension, filename)
         print('checking against %s' % expected_filename)
         if not os.path.exists(expected_filename):
-            print('Missing expected file %r:\n%s' % (
-                expected_filename, json.dumps(
-                    result, cls=Encoder, indent=4, sort_keys=True)))
+            self._print_expectations(expected_filename, result)
             raise Exception('Missing expected file %r' % expected_filename)
         with open(expected_filename, 'r') as f:
             expected = json.loads(f.read(), object_hook=Decoder)
-            self.assertDictEqual(expected, result)
+            try:
+                self.assertDictEqual(expected, result)
+            except:
+                self._print_expectations(expected_filename, result)
+                raise
 
 
 class TestBroken(unittest.TestCase):

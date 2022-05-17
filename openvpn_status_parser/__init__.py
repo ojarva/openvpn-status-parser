@@ -91,8 +91,9 @@ class OpenVPNStatusParser:
         if len(row[1:]) != len(self.topics_for.get("ROUTING_TABLE", [])):
             raise exceptions.MalformedFileException("Invalid number of topics for ROUTING_TABLE row")
         try:
-            self._routing_table[row[2]] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
-            self._routing_table[row[2]]["last_ref"] = datetime.datetime.fromtimestamp(int(row[-1]))
+            rt_key = "%s (%s)" % (row[2], row[3])
+            self._routing_table[rt_key] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
+            self._routing_table[rt_key]["last_ref"] = datetime.datetime.fromtimestamp(int(row[-1]))
         except IndexError as err:
             logging.error("ROUTING_TABLE row is invalid: %s", row)
             raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid") from err

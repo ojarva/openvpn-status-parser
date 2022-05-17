@@ -1,5 +1,5 @@
 {
-    "3kjb-laptop": {
+    "3kjb-laptop (72.55.24.7:60477)": {
         "Common Name": "3kjb-laptop",
         "Last Ref": "Thu Aug 16 11:56:01 2012",
         "Last Ref (time_t)": "1345107361",
@@ -7,7 +7,7 @@
         "Virtual Address": "7e:18:0d:f0:0f:b7",
         "last_ref": "2012-08-16T16:56:01"
     },
-    "aefj-laptop": {
+    "aefj-laptop (83.243.114.51:63714)": {
         "Common Name": "aefj-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -15,7 +15,7 @@
         "Virtual Address": "3e:2e:ef:8a:d5:9d",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "alfb-laptop": {
+    "alfb-laptop (204.184.94.179:41718)": {
         "Common Name": "alfb-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -23,7 +23,7 @@
         "Virtual Address": "06:e1:36:5e:24:82",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "eijbk-ext-home-laptop": {
+    "eijbk-ext-home-laptop (10.3.0.23:61674)": {
         "Common Name": "eijbk-ext-home-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -31,7 +31,7 @@
         "Virtual Address": "55:fb:d6:3b:40:ae",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "ekl6-laptop": {
+    "ekl6-laptop (48.109.171.156:15916)": {
         "Common Name": "ekl6-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -39,7 +39,15 @@
         "Virtual Address": "00:ff:e0:d5:76:ce",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "ibja-laptop": {
+    "ekl6-laptop (48.109.171.156:5396)": {
+        "Common Name": "ekl6-laptop",
+        "Last Ref": "Thu Aug 16 12:30:27 2012",
+        "Last Ref (time_t)": "1345109427",
+        "Real Address": "48.109.171.156:5396",
+        "Virtual Address": "00:ff:e0:d5:76:cf",
+        "last_ref": "2012-08-16T17:30:27"
+    },
+    "ibja-laptop (72.55.24.7:16909)": {
         "Common Name": "ibja-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -47,7 +55,7 @@
         "Virtual Address": "d2:62:4e:c7:94:74",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "ikal-laptop": {
+    "ikal-laptop (72.55.24.7:59688)": {
         "Common Name": "ikal-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
@@ -55,7 +63,7 @@
         "Virtual Address": "c2:bf:18:5e:bc:29",
         "last_ref": "2012-08-16T17:30:29"
     },
-    "lifk-laptop": {
+    "lifk-laptop (10.3.0.73:52420)": {
         "Common Name": "lifk-laptop",
         "Last Ref": "Thu Aug 16 12:05:21 2012",
         "Last Ref (time_t)": "1345107551",
@@ -63,7 +71,7 @@
         "Virtual Address": "da:38:b0:73:ee:40",
         "last_ref": "2012-08-16T16:59:11"
     },
-    "lkbi-laptop": {
+    "lkbi-laptop (10.3.0.191:53301)": {
         "Common Name": "lkbi-laptop",
         "Last Ref": "Thu Aug 16 12:09:28 2012",
         "Last Ref (time_t)": "1345108168",
@@ -71,7 +79,7 @@
         "Virtual Address": "be:91:89:97:5f:22",
         "last_ref": "2012-08-16T17:09:28"
     },
-    "oavk-laptop": {
+    "oavk-laptop (10.3.0.55:56466)": {
         "Common Name": "oavk-laptop",
         "Last Ref": "Thu Aug 16 12:30:29 2012",
         "Last Ref (time_t)": "1345109429",
