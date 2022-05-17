@@ -41,7 +41,7 @@ class TestValid(unittest.TestCase):
         print(json.dumps(result, cls=Encoder, indent=4, sort_keys=True))
 
     def _test_expectation(self, filename, expected_extension, result):
-        expected_filename = re.sub('\.status$', expected_extension, filename)
+        expected_filename = re.sub(r'\.status$', expected_extension, filename)
         if not os.path.exists(expected_filename):
             self._print_expectations(expected_filename, result)
             raise Exception('Missing expected file %r' % expected_filename)
