@@ -1,6 +1,7 @@
 import datetime
 import glob
 import json
+import logging
 import os
 import re
 import unittest
@@ -41,7 +42,6 @@ class TestValid(unittest.TestCase):
 
     def _test_expectation(self, filename, expected_extension, result):
         expected_filename = re.sub('\.status$', expected_extension, filename)
-        print('checking against %s' % expected_filename)
         if not os.path.exists(expected_filename):
             self._print_expectations(expected_filename, result)
             raise Exception('Missing expected file %r' % expected_filename)
@@ -77,6 +77,8 @@ for fn in glob.glob("tests/testfiles/broken/*.status"):
     print(f"Adding {fn}")
     test_func_name = fn.replace(".", "_")
     setattr(TestBroken, f"test_{test_func_name}", ch(fn))
+
+logging.disable(logging.CRITICAL)
 
 
 if __name__ == '__main__':
