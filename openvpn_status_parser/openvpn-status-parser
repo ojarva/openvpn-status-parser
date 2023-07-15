@@ -2,7 +2,7 @@
 """OpenVPN status parser
 
 Usage:
-    openvpn-status-parser <filename>...
+    openvpn-status-parser <filename>...  [--json]
 
 """
 
@@ -17,22 +17,28 @@ import openvpn_status_parser
 
 def main():
     arguments = docopt.docopt(__doc__, version='OpenVPN status parser')
+    output_json = arguments['--json']
+
     for filename in arguments["<filename>"]:
         if not os.path.exists(filename):
             print("File '%s' does not exist. Exiting." % filename)
             return 1
         parser = openvpn_status_parser.OpenVPNStatusParser(filename)
-        print("=" * 79)
-        print(filename)
-        print("-" * 79)
-        print("Connected clients")
-        pprint.pprint(parser.connected_clients)
-        print("-" * 79)
-        print("Routing table")
-        pprint.pprint(parser.routing_table)
-        print("-" * 79)
-        print("Additional details")
-        pprint.pprint(parser.details)
+
+        if output_json:
+            print(parser.json)
+        else:
+            print("=" * 79)
+            print(filename)
+            print("-" * 79)
+            print("Connected clients")
+            pprint.pprint(parser.connected_clients)
+            print("-" * 79)
+            print("Routing table")
+            pprint.pprint(parser.routing_table)
+            print("-" * 79)
+            print("Additional details")
+            pprint.pprint(parser.details)
     return 0
 
 
