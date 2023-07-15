@@ -58,7 +58,7 @@ def todict(obj):
     return todict(dict((name, getattr(obj, name)) for name in getattr(obj, '__slots__')))
   return str(obj)
 
-class OpenVPNStatusParser(object):
+class OpenVPNStatusParser:
     """
     Usage:
 
@@ -66,7 +66,6 @@ class OpenVPNStatusParser(object):
     parser = OpenVPNStatusParser(filename)
     pprint.pprint(parser.connected_clients)
     """
-
     def __init__(self, filename):
         self.filename = filename
         self._connected_clients = None
@@ -85,34 +84,33 @@ class OpenVPNStatusParser(object):
     def _process_title(self, row):
         try:
             self._details["title"] = row[1]
-        except IndexError:
+        except IndexError as err:
             logging.error("TITLE row is invalid: %s", row)
-            raise exceptions.MalformedFileException("TITLE row is invalid")
+            raise exceptions.MalformedFileException("TITLE row is invalid") from err
 
     def _process_time(self, row):
         try:
             self._details["timestamp"] = datetime.datetime.fromtimestamp(int(row[2]))
-        except (IndexError, ValueError):
+        except (IndexError, ValueError) as err:
             logging.error("TIME row is invalid: %s", row)
-            raise exceptions.MalformedFileException("TIME row is invalid")
+            raise exceptions.MalformedFileException("TIME row is invalid") from err
 
     def _process_header(self, row):
         try:
             self.topics_for[row[1]] = row[2:]
-        except IndexError:
+        except IndexError as err:
             logging.error("HEADER row is invalid: %s", row)
-            raise exceptions.MalformedFileException("HEADER row is invalid")
+            raise exceptions.MalformedFileException("HEADER row is invalid") from err
 
     def _process_client_list(self, row):
         try:
             self._connected_clients[row[1]] = dict(zip(self.topics_for["CLIENT_LIST"], row[1:]))
-            self._connected_clients[row[1]]["connected_since"] = (
-                datetime.datetime.fromtimestamp(int(row[-1])))
-        except IndexError:
+            self._connected_clients[row[1]]["connected_since"] = (datetime.datetime.fromtimestamp(int(row[-1])))
+        except IndexError as err:
             logging.error("CLIENT_LIST row is invalid: %s", row)
-            raise exceptions.MalformedFileException("CLIENT_LIST row is invalid")
-        except KeyError:
-            raise exceptions.MalformedFileException("Topics for CLIENT_LIST are missing")
+            raise exceptions.MalformedFileException("CLIENT_LIST row is invalid") from err
+        except KeyError as err:
+            raise exceptions.MalformedFileException("Topics for CLIENT_LIST are missing") from err
 
     def _process_routing_table(self, row):
         if len(row[1:]) != len(self.topics_for.get("ROUTING_TABLE", [])):
@@ -120,20 +118,20 @@ class OpenVPNStatusParser(object):
         try:
             self._routing_table[row[2]] = dict(zip(self.topics_for["ROUTING_TABLE"], row[1:]))
             self._routing_table[row[2]]["last_ref"] = datetime.datetime.fromtimestamp(int(row[-1]))
-        except IndexError:
+        except IndexError as err:
             logging.error("ROUTING_TABLE row is invalid: %s", row)
-            raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid")
-        except ValueError:
-            raise exceptions.MalformedFileException("Invalid timestamp")
-        except KeyError:
-            raise exceptions.MalformedFileException("Topics for ROUTING_TABLE are missing")
+            raise exceptions.MalformedFileException("ROUTING_TABLE row is invalid") from err
+        except ValueError as err:
+            raise exceptions.MalformedFileException("Invalid timestamp") from err
+        except KeyError as err:
+            raise exceptions.MalformedFileException("Topics for ROUTING_TABLE are missing") from err
 
     def _process_global_stats(self, row):
         try:
             self._details[row[1]] = row[2]
-        except IndexError:
+        except IndexError as err:
             logging.error("GLOBAL_STATS row is invalid: %s", row)
-            raise exceptions.MalformedFileException("GLOBAL_STATS row is invalid")
+            raise exceptions.MalformedFileException("GLOBAL_STATS row is invalid") from err
 
     def _parse_file(self):
         self._details = {}
@@ -148,9 +146,8 @@ class OpenVPNStatusParser(object):
             elif row_title == "END":
                 return True
             else:
-                logging.warning("Line was not parsed. Keyword %s not recognized. %s",
-                                row_title, row)
-                raise exceptions.MalformedFileException("Unhandled keyword %s", row_title)
+                logging.warning("Line was not parsed. Keyword %s not recognized. %s", row_title, row)
+                raise exceptions.MalformedFileException(f"Unhandled keyword {row_title}")
 
         logging.error("File was incomplete. END line was missing.")
         raise exceptions.MalformedFileException("END line was missing.")
